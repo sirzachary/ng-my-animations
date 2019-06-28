@@ -1,0 +1,32 @@
+<div style="width: 100%; height: 100vh" class="flex justify-center items-center">
+    <div class="flex flex-col justify-center items-center" *ngIf="showBuilder">
+        <h3 class="text-xl mb-6 text-gray-500">Click to add ingredients!</h3>
+        <div class="ingredients flex items-center mb-5">
+            <div *ngFor="let ingredient of possibleIngredients" class="mx-3">
+                <div class="bg-white p-4 grow clickable" style="border-radius: 100%;" (click)="addToList(ingredient)">
+                    <div class="image" [style.background-image]="'url(' + ingredient.image + ')'"
+                        style="height: 100px; width: 100px; background-size: contain; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 400px; height: 214px">
+            <ul class="collection">
+                <li class="collection-item white capitalize flex items-center fly-in"
+                    *ngFor="let item of list; let i = index">
+                    <div>{{ item.name }}</div><span class="text-gray-500 ml-2">{{ item.calories }} kcal</span>
+                    <i class="tiny material-icons ml-auto text-gray-500 clickable" (click)="remove(i)">close</i>
+                </li>
+            </ul>
+        </div>
+        <img src="assets/images/spatula.png" class="clickable spatula" [class.loading]="loading" (click)="buildBurger()"
+            alt="" style="height: 100px; width: auto; transform: rotate(90deg)">
+    </div>
+    <div class="flex flex-col justify-center items-center" *ngIf="showBurger">
+        <div style="margin-bottom: -100px; z-index: 99;">
+            <h1 class="text-6xl text-center mb-3">Bon Appétit</h1>
+            <h3 class="text-xl text-center">Enjoy your {{ totalCalories }} calories!</h3>
+        </div>
+        <img src="assets/images/Burger.png" alt="">
+    </div>
+</div>

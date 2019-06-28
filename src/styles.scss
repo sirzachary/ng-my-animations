@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "../node_modules/tailwindcss/dist/base.css";
+@import "../node_modules/tailwindcss/dist/components.css";
+@import "../node_modules/tailwindcss/dist/utilities.css";
+
+body {
+  margin: 0px;
+  background: whitesmoke;
+  color: #616161;
+  // font-family: 'Cerebri Sans';
+  // src: url('/src/assets/fonts/cerebrisans/cerebrisans-regular.eot');
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+.input-field {
+  margin: 0;
+}
+
+li.collection-item {
+  // border: none;
+  opacity: 1;
+}
+
+.card-action {
+  padding: 7px 20px;
+}
+
+.collection {
+  border: none;
+  margin: 0;
+}
+
+.bg-supernova {
+  background: #ffc600;
+}
+
+input:focus.mc-donald-input {
+  border-bottom: 1px solid #d50000 !important;
+  -webkit-box-shadow: 0 1px 0 0 #d50000 !important;
+  box-shadow: 0 1px 0 0 #d50000 !important;
+}
