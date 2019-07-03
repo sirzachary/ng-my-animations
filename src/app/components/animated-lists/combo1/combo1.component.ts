@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from 'src/app/interfaces/ingredients.interface';
 import { possibleIngredients } from 'src/app/constants/constants';
+import { timer } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-combo1',
@@ -9,7 +12,9 @@ import { possibleIngredients } from 'src/app/constants/constants';
 })
 export class Combo1Component implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dataService: DataService,
+  ) { }
 
   loading = false;
   showBuilder = true;
@@ -56,10 +61,11 @@ export class Combo1Component implements OnInit {
 
   buildBurger() {
     this.loading = true;
-    setTimeout(() => {
-      this.loading = false;
+    this.dataService.fakeResponse().pipe(
+      tap(() => this.loading = false )
+    ).subscribe(() => {
       this.showBuilder = false;
       this.showBurger = true;
-    }, Math.floor(Math.random() * 5000) + 3000);
+    })
   }
 }

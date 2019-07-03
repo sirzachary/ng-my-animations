@@ -1,22 +1,17 @@
-.meal-card {
-  cursor: pointer;
-  transition: transform 0.5s ease-in-out;
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  &.active {
-    transform: scale(1.05);
-  }
-}
-
-.sidebar {
-  overflow-y: scroll;
-  overflow-x: visible;
-}
-
 :focus {
   outline: none !important;
+}
+
+.circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .background {

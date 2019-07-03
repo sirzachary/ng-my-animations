@@ -3,8 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { Combo1Component } from './components/animated-lists/combo1/combo1.component';
 import { Combo2Component } from './components/animated-lists/combo2/combo2.component';
 import { Combo3Component } from './components/animated-lists/combo3/combo3.component';
+import { Combo0Component } from './components/animated-lists/combo0/combo0.component';
 
 const routes: Routes = [
+  {
+    path: 'combo/0',
+    component: Combo0Component,
+    data: { animation: 0 }
+  },
   {
     path: 'combo/1',
     component: Combo1Component,

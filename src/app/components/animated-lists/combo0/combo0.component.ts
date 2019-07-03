@@ -1,24 +1,15 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Ingredient } from 'src/app/interfaces/ingredients.interface';
 import { possibleIngredients } from 'src/app/constants/constants';
-import { slideInList, fadeOut } from 'src/app/animations/animation';
-import { tap } from 'rxjs/operators';
-import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-combo3',
-  templateUrl: './combo3.component.html',
-  styleUrls: ['./combo3.component.scss'],
-  animations: [
-    slideInList,
-    fadeOut,
-  ]
+  selector: 'app-combo0',
+  templateUrl: './combo0.component.html',
+  styleUrls: ['./combo0.component.scss']
 })
-export class Combo3Component implements OnInit {
+export class Combo0Component implements OnInit {
 
-  constructor(
-    private dataService: DataService,
-  ) { }
+  constructor() { }
 
   loading = false;
   showBuilder = true;
@@ -65,13 +56,10 @@ export class Combo3Component implements OnInit {
 
   buildBurger() {
     this.loading = true;
-    this.dataService.fakeResponse().pipe(
-      tap(() => { 
-        this.loading = false;
-      })
-    ).subscribe(() => {
+    setTimeout(() => {
+      this.loading = false;
       this.showBuilder = false;
       this.showBurger = true;
-    })
+    }, Math.floor(Math.random() * 5000) + 3000);
   }
 }
